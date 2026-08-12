@@ -1,0 +1,13 @@
+[package]
+name = "my-ui-framework"
+description = "The my-ui-framework semantic UI framework"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+version.workspace = true
+
+[dependencies]
+my-ui-framework-core = { path = "../core" }

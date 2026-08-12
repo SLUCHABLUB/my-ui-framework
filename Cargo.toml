@@ -1,6 +1,7 @@
 [workspace]
 resolver = "3"
-members = ["core"]
+members = ["core", "lib"]
+default-members = ["lib"]
 
 [workspace.package]
 authors = ["SLUCHABLUB"]
