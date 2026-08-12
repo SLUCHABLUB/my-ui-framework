@@ -1,0 +1,10 @@
+[package]
+name = "my-ui-framework-core"
+description = "The core of the my-ui-framework semantic UI framework"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+version.workspace = true
