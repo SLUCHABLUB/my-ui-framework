@@ -1,3 +1,4 @@
+use my_ui_framework::Backend;
 use my_ui_framework::Effect;
 use my_ui_framework::Ui;
 use my_ui_framework::run;
@@ -9,6 +10,13 @@ enum Message {}
 
 // TODO: Use a real backend.
 struct MockBackend;
+
+impl Backend for MockBackend {
+    fn drive<App, Message>(self, runtime: my_ui_framework::Runtime<App, Message>) -> ExitCode {
+        drop(runtime);
+        ExitCode::SUCCESS
+    }
+}
 
 fn view(app: &App, ui: &mut Ui) {
     // TODO: Emit "Hello, World!".

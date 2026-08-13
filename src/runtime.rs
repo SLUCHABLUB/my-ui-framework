@@ -16,7 +16,10 @@ pub fn run<App, Message, Backend>(
     view: fn(&App, &mut Ui),
     update: fn(&mut App, Message) -> Effect,
     backend: Backend,
-) -> ExitCode {
+) -> ExitCode
+where
+    Backend: crate::Backend,
+{
     let runtime = Runtime {
         app: initial_state,
         view,
