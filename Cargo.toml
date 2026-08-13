@@ -1,7 +1,16 @@
+[package]
+name = "my-ui-framework"
+description = "A semantic backend-agnostic UI framework"
+
+authors.workspace = true
+edition.workspace = true
+license.workspace = true
+readme.workspace = true
+repository.workspace = true
+version.workspace = true
+
 [workspace]
 resolver = "3"
-members = ["core", "lib"]
-default-members = ["lib"]
 
 [workspace.package]
 authors = ["SLUCHABLUB"]

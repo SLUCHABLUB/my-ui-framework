@@ -5,19 +5,19 @@ use std::process::ExitCode;
 
 struct App;
 
+enum Message {}
+
+// TODO: Use a real backend.
+struct MockBackend;
+
 fn view(app: &App, ui: &mut Ui) {
     // TODO: Emit "Hello, World!".
     let _ = (ui, app);
 }
 
-enum Message {}
-
-fn update(app: &mut App, message: Message) -> Effect {
-    let _ = app;
+fn update(_: &mut App, message: Message) -> Effect {
     match message {}
 }
-
-struct MockBackend;
 
 fn main() -> ExitCode {
     run(App, view, update, MockBackend)
