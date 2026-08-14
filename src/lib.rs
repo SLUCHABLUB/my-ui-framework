@@ -1,12 +1,13 @@
 mod backend;
 mod effect;
 mod runtime;
+mod view;
 
 pub use backend::Backend;
 pub use backend::JsonBackend;
 pub use effect::Effect;
 pub use runtime::Runtime;
 pub use runtime::run;
+pub use view::UiRoot;
 
-// TODO: Move this.
-pub struct Ui;
+pub(crate) use view::View;

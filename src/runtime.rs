@@ -1,11 +1,12 @@
 use crate::Effect;
-use crate::Ui;
+use crate::UiRoot;
+use crate::View;
 use std::process::ExitCode;
 
 #[must_use = "the exit code should pe propagated"]
 pub fn run<App, Message, Backend>(
     initial_state: App,
-    view: fn(&App, &mut Ui),
+    view: fn(&App, UiRoot),
     update: fn(&mut App, Message) -> Effect,
     backend: Backend,
 ) -> ExitCode
@@ -14,24 +15,33 @@ where
 {
     backend.drive(Runtime {
         app: initial_state,
-        view,
+        view_generator: view,
         update,
+        view: View::new(),
     })
 }
 
 pub struct Runtime<App, Message> {
-    #[expect(unused)]
     app: App,
-    #[expect(unused)]
-    view: fn(&App, &mut Ui),
-    #[expect(unused)]
+    view_generator: fn(&App, UiRoot<'_>),
+    #[expect(unused, reason = "TODO")]
     update: fn(&mut App, Message) -> Effect,
+
+    view: View,
 }
 
 impl<App, Message> Runtime<App, Message> {
     pub fn tick(&mut self) -> TickResult {
         // TODO: Go though pending messages.
-        // TODO: Rebuild the view if we have to.
+
+        // TODO: Only do this if we have to.
+        {
+            let ui = self.view.clear();
+            (self.view_generator)(&self.app, ui);
+
+            // TODO: Diff the new view against the element tree.
+        }
+
         TickResult {}
     }
 }
