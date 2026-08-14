@@ -1,3 +1,14 @@
+[workspace]
+resolver = "3"
+
+[workspace.package]
+authors = ["SLUCHABLUB"]
+edition = "2024"
+license = "AGPL-3.0-or-later"
+readme = "README.md"
+repository = "https://github.com/SLUCHABLUB/my-ui-framework"
+version = "0.1.0-dev"
+
 [package]
 name = "my-ui-framework"
 description = "A semantic backend-agnostic UI framework"
@@ -9,13 +20,5 @@ readme.workspace = true
 repository.workspace = true
 version.workspace = true
 
-[workspace]
-resolver = "3"
-
-[workspace.package]
-authors = ["SLUCHABLUB"]
-edition = "2024"
-license = "AGPL-3.0-or-later"
-readme = "README.md"
-repository = "https://github.com/SLUCHABLUB/my-ui-framework"
-version = "0.1.0-dev"
+[dependencies]
+json = "0.12.4"

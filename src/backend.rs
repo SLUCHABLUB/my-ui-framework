@@ -1,3 +1,8 @@
+// TODO: Feature gate this.
+mod json;
+
+pub use json::JsonBackend;
+
 use crate::Runtime;
 use std::process::ExitCode;
 
